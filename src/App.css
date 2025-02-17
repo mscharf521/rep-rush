@@ -1,0 +1,194 @@
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App h1 {
+  font-size: 1.75rem;
+  margin: 8px 0;
+  color: #333;
+}
+
+.timer {
+  margin: 8px 0;
+}
+
+.time-display {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 8px 0;
+  color: #2c3e50;
+}
+
+.timer-controls button,
+.counter-controls button {
+  margin: 4px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.2s;
+  min-width: 60px;
+  touch-action: manipulation;
+}
+
+.timer-controls button:hover,
+.counter-controls button:hover {
+  background-color: #2980b9;
+}
+
+.timer-controls button:active,
+.counter-controls button:active {
+  transform: scale(0.98);
+}
+
+.rep-counter {
+  margin: 8px 0;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rep-counter h2 {
+  font-size: 1.25rem;
+  margin: 4px 0;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.counter-display {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 8px 0;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.counter-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.increment-buttons,
+.decrement-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.increment-buttons button {
+  background-color: #2ecc71;
+}
+
+.increment-buttons button:hover {
+  background-color: #27ae60;
+}
+
+.decrement-buttons button {
+  background-color: #e74c3c;
+}
+
+.decrement-buttons button:hover {
+  background-color: #c0392b;
+}
+
+.exercise-chart {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+  width: 100%;
+  min-height: 300px;
+  height: 50vh;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .timer-controls button,
+  .counter-controls button {
+    padding: 16px 24px;
+    font-size: 1.2rem;
+  }
+
+  .exercise-chart {
+    height: 90vw;
+  }
+
+  .time-display {
+    font-size: 1.75rem;
+  }
+
+  .counter-display {
+    font-size: 1.75rem;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 8px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-buttons button:first-child {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: #3498db;
+  color: white;
+}
+
+.modal-buttons button:hover {
+  opacity: 0.9;
+}
