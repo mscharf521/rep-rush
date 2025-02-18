@@ -2,6 +2,8 @@
 
 A simple app to help you track your reps of a workout.
 
+[Live Demo](http://rep-rush.s3-website-us-east-1.amazonaws.com/)
+
 ## Features
 
 - Track your reps and time
