@@ -1,31 +1,44 @@
 import React, { useState } from 'react';
 import Timer from './components/Timer';
 import RepCounter from './components/RepCounter';
+import Header from './components/Header';
 import './App.css';
 
 function App() {
   const [timerStartTime, setTimerStartTime] = useState(null);
+  const [elapsedTime, setElapsedTime] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
   const [resetKey, setResetKey] = useState(0);
 
   const handleReset = () => {
     setTimerStartTime(null);
-    setResetKey(prev => prev + 1); // This will force RepCounter to re-mount and reset
+    setElapsedTime(0);
+    setIsRunning(false);
+    setResetKey(prev => prev + 1);
   };
 
   return (
     <div className="App">
-      <h1>Rep Rush</h1>
-      <Timer 
-        onStart={(startTime) => setTimerStartTime(startTime)} 
-        onReset={handleReset}
-      />
-      <RepCounter 
-        key={resetKey}
-        label="Pull-ups"
-        incrementValues={[1, 5, 10]}
-        decrementValues={[1, 5, 10]}
-        timerStartTime={timerStartTime}
-      />
+      <Header />
+      <main className="app-content">
+        <Timer 
+          onStart={(startTime) => {
+            setTimerStartTime(startTime);
+            setIsRunning(true);
+          }}
+          onStop={() => setIsRunning(false)}
+          onTimeUpdate={setElapsedTime}
+          onReset={handleReset}
+        />
+        <RepCounter 
+          key={resetKey}
+          label="Pull-ups"
+          incrementValues={[1, 5, 10]}
+          decrementValues={[1, 5, 10]}
+          elapsedTime={elapsedTime}
+          isRunning={isRunning}
+        />
+      </main>
     </div>
   );
 }

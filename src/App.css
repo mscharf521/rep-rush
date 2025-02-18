@@ -7,10 +7,8 @@
   min-height: 100vh;
 }
 
-.App h1 {
-  font-size: 1.75rem;
-  margin: 8px 0;
-  color: #333;
+.App > h1 {
+  display: none;
 }
 
 .timer {
@@ -47,6 +45,17 @@
 .timer-controls button:active,
 .counter-controls button:active {
   transform: scale(0.98);
+}
+
+.timer-controls button:disabled,
+.counter-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.timer-controls button:disabled:hover,
+.counter-controls button:disabled:hover {
+  background-color: #3498db; /* Keep original color when disabled */
 }
 
 .rep-counter {
@@ -99,12 +108,20 @@
   background-color: #27ae60;
 }
 
+.increment-buttons button:disabled:hover {
+  background-color: #2ecc71;
+}
+
 .decrement-buttons button {
   background-color: #e74c3c;
 }
 
 .decrement-buttons button:hover {
   background-color: #c0392b;
+}
+
+.decrement-buttons button:disabled:hover {
+  background-color: #e74c3c;
 }
 
 .exercise-chart {
@@ -191,4 +208,64 @@
 
 .modal-buttons button:hover {
   opacity: 0.9;
+}
+
+.no-sets-message {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #95a5a6;
+  padding: 2rem;
+  text-align: center;
+}
+
+.no-sets-message p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.no-sets-message .sub-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.app-header {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.app-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 64px); /* Subtract header height */
 }

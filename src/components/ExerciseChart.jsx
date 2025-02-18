@@ -21,12 +21,7 @@ ChartJS.register(
   Legend
 );
 
-function ExerciseChart({ sets, timerStartTime }) {
-  const getSecondsFromStart = (timestamp) => {
-    if (!timerStartTime || !timestamp) return 0;
-    return Math.floor((timestamp - timerStartTime) / 1000);
-  };
-
+function ExerciseChart({ sets }) {
   const chartData = {
     datasets: [
       {
@@ -34,7 +29,7 @@ function ExerciseChart({ sets, timerStartTime }) {
         data: [
           { x: 0, y: 0 },  // Starting point
           ...sets.map((set, index) => ({
-            x: getSecondsFromStart(set.timestamp),
+            x: set.elapsedTime,
             y: sets
               .slice(0, index + 1)
               .reduce((sum, set) => sum + set.reps, 0)
@@ -78,7 +73,10 @@ function ExerciseChart({ sets, timerStartTime }) {
       {sets.length > 0 ? (
         <Line data={chartData} options={options} />
       ) : (
-        <p>No sets recorded yet</p>
+        <div className="no-sets-message">
+          <p>No sets recorded yet</p>
+          <p className="sub-text">Start the timer and add reps to see your progress</p>
+        </div>
       )}
     </div>
   );
