@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header isRunning={isRunning} />
       <main className="app-content">
         <Timer 
           onStart={(startTime) => {

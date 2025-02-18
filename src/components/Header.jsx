@@ -1,6 +1,6 @@
-function Header() {
+function Header({ isRunning }) {
   return (
-    <header className="app-header">
+    <header className={`app-header ${isRunning ? 'pulsing' : ''}`}>
       <div className="header-content">
         <img 
           src="https://images.emojiterra.com/google/noto-emoji/unicode-15/color/512px/1f4aa.png" 
