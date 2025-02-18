@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && aws s3 cp dist s3://rep-rush --recursive"
   },
   "dependencies": {
     "chart.js": "^4.4.7",
