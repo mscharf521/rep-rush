@@ -8,19 +8,19 @@ function RepCounter({ label, incrementValues = [1], decrementValues = [1], elaps
   const count = sets.reduce((sum, set) => sum + set.reps, 0);
 
   const updateSet = (value) => {
-    if (!isRunning) return; // Prevent updates when timer is not running
+    if (!isRunning) return;
     
     const now = new Date();
+    setLastSetTime(now); // Always update lastSetTime when any change is made
     
-    if (!lastSetTime) {
+    if (!sets.length) {
       // First set
-      setLastSetTime(now);
       setSets([{ reps: value, elapsedTime }]);
     } else {
       const timeDiff = (now - lastSetTime) / 1000; // difference in seconds
       
       if (timeDiff <= 5) {
-        // Update last set
+        // Update last set with current elapsed time
         setSets(prevSets => {
           const lastSet = prevSets[prevSets.length - 1];
           return [
@@ -30,7 +30,6 @@ function RepCounter({ label, incrementValues = [1], decrementValues = [1], elaps
         });
       } else {
         // New set
-        setLastSetTime(now);
         setSets(prevSets => [...prevSets, { reps: value, elapsedTime }]);
       }
     }
@@ -72,7 +71,7 @@ function RepCounter({ label, incrementValues = [1], decrementValues = [1], elaps
           ))}
         </div>
       </div>
-      <ExerciseChart sets={sets} elapsedTime={elapsedTime} />
+      <ExerciseChart sets={sets} />
     </div>
   );
 }

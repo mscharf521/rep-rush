@@ -43,14 +43,13 @@ function ExerciseChart({ sets }) {
 
   const options = {
     responsive: true,
-    maintainAspectRatio: false,  // This is crucial for height control
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top',
+        display: false,
       },
       title: {
-        display: true,
-        text: 'Cumulative Reps Over Time',
+        display: false,
       },
     },
     scales: {
@@ -64,6 +63,10 @@ function ExerciseChart({ sets }) {
       },
       y: {
         beginAtZero: true,
+        ticks: {
+          stepSize: 1,
+          precision: 0
+        }
       },
     },
   };

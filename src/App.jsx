@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <Header isRunning={isRunning} />
-      <main className="app-content">
+      <div className="app-container">
         <Timer 
           onStart={(startTime) => {
             setTimerStartTime(startTime);
@@ -30,15 +30,17 @@ function App() {
           onTimeUpdate={setElapsedTime}
           onReset={handleReset}
         />
-        <RepCounter 
-          key={resetKey}
-          label="Pull-ups"
-          incrementValues={[1, 5, 10]}
-          decrementValues={[1, 5, 10]}
-          elapsedTime={elapsedTime}
-          isRunning={isRunning}
-        />
-      </main>
+        <div className="counter-container">
+          <RepCounter 
+            key={resetKey}
+            label="Pull-ups"
+            incrementValues={[1, 5, 10]}
+            decrementValues={[1, 5, 10]}
+            elapsedTime={elapsedTime}
+            isRunning={isRunning}
+          />
+        </div>
+      </div>
     </div>
   );
 }
