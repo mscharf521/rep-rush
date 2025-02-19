@@ -33,7 +33,7 @@ function App() {
         <div className="counter-container">
           <RepCounter 
             key={resetKey}
-            label="Pull-ups"
+            label=""
             incrementValues={[1, 5, 10]}
             decrementValues={[1, 5, 10]}
             elapsedTime={elapsedTime}

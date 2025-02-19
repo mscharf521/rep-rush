@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import ExerciseChart from './ExerciseChart';
+import StatsGrid from './StatsGrid';
 
 function RepCounter({ label, incrementValues = [1], decrementValues = [1], elapsedTime, isRunning }) {
   const [sets, setSets] = useState([]);
   const [lastSetTime, setLastSetTime] = useState(null);
+  const [goal, setGoal] = useState(100);
 
   const count = sets.reduce((sum, set) => sum + set.reps, 0);
 
@@ -11,7 +13,7 @@ function RepCounter({ label, incrementValues = [1], decrementValues = [1], elaps
     if (!isRunning) return;
     
     const now = new Date();
-    setLastSetTime(now); // Always update lastSetTime when any change is made
+    setLastSetTime(now);
     
     if (!sets.length) {
       // First set
@@ -72,6 +74,7 @@ function RepCounter({ label, incrementValues = [1], decrementValues = [1], elaps
         </div>
       </div>
       <ExerciseChart sets={sets} />
+      <StatsGrid sets={sets} initialGoal={goal} onGoalChange={setGoal} />
     </div>
   );
 }

@@ -369,3 +369,67 @@ button {
   user-select: none;
   -webkit-user-select: none;
 }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.stat-box {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  text-align: center;
+}
+
+.stat-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.stat-box p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.stat-box input {
+  width: 60px; /* Fixed width for the input */
+  padding: 4px; /* Inner padding */
+  border: 1px solid #ccc; /* Border style */
+  border-radius: 4px; /* Rounded corners */
+  margin-top: 8px; /* Space above the input */
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr; /* 1 column on very small screens */
+  }
+}
+
+.goal-input {
+  margin: 16px 0; /* Space around the input */
+  display: flex;
+  align-items: center;
+}
+
+.goal-input label {
+  margin-right: 8px; /* Space between label and input */
+}
+
+.goal-input input {
+  width: 60px; /* Fixed width for the input */
+  padding: 4px; /* Inner padding */
+  border: 1px solid #ccc; /* Border style */
+  border-radius: 4px; /* Rounded corners */
+}
